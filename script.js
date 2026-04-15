@@ -9,10 +9,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Simple Mobile Menu (Log functionality for demo)
+    // Mobile Menu Toggle
     const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = mobileToggle.querySelector('i');
+
     mobileToggle.addEventListener('click', () => {
-        alert('Mobile menu toggled! In a real app, this would slide in a navigation drawer.');
+        navLinks.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+        
+        // Toggle icon between menu and x
+        const isOpened = navLinks.classList.contains('active');
+        menuIcon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+        lucide.createIcons();
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        });
     });
 
     // Scroll reveal placeholder (simple version)
