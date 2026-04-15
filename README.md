@@ -1,4 +1,4 @@
-# Lumina Digital Landing Page
+# Shivam Web Studio Landing page
 
 A premium digital marketing agency landing page.
 
